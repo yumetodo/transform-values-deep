@@ -14,7 +14,7 @@ export function transformAnyValuesDeep<T>(
   o: Record<string, unknown> | Array<unknown>,
   pred: (o: T) => unknown,
   isTransformTargetType: (o: unknown) => o is T
-): object {
+): Record<string, unknown> | Array<unknown> {
   const re: Record<string, unknown> = { ...o };
   for (const [k, v] of Object.entries(re)) {
     if (Array.isArray(v)) {
