@@ -1,5 +1,5 @@
 import test from 'ava';
-import { transformAnyValuesDeep } from '../src/index';
+import { transformAnyValuesDeep, transformValuesDeep } from '../src/index';
 test('string to number', t => {
   const foo = () => true;
   t.deepEqual(
@@ -23,5 +23,12 @@ test('string to number', t => {
       (s: string) => parseInt(s),
       (o: unknown): o is string => typeof o === 'string'
     )
+  );
+});
+test('no change object', t => {
+  const o = {};
+  t.not(
+    { foo: o },
+    transformValuesDeep({ foo: o }, v => v)
   );
 });
