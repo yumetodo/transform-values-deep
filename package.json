@@ -1,0 +1,36 @@
+{
+  "name": "transform-values-deep",
+  "version": "1.0.0",
+  "description": "Deeply convert object values",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ava --verbose",
+    "lint": "eslint --ext .ts . --cache",
+    "lint:fix": "eslint --ext .ts --fix . --cache",
+    "prettier": "prettier --write .",
+    "build": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --outfile=dist/index.js",
+    "build:release": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --minify --outfile=dist/index.js",
+    "tsc": "tsc --noEmit"
+  },
+  "author": "yumetodo",
+  "license": "BSL-1.0",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "ava": "^4.1.0",
+    "esbuild": "^0.14.25",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm"
+    ]
+  }
+}
