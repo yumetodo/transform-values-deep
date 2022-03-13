@@ -11,7 +11,7 @@ test('string to number', t => {
       },
       d: 9,
     },
-    transformAnyValuesDeep<string>(
+    transformAnyValuesDeep(
       {
         a: 4,
         b: {
