@@ -4,14 +4,21 @@
   "description": "Deeply convert object values",
   "main": "dist/index.js",
   "scripts": {
-    "test": "ava --verbose",
+    "test": "ava --verbose test/",
     "lint": "eslint --ext .ts . --cache",
     "lint:fix": "eslint --ext .ts --fix . --cache",
     "prettier": "prettier --write .",
-    "build": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --outfile=dist/index.js",
-    "build:release": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --minify --outfile=dist/index.js",
-    "tsc": "tsc --noEmit"
+    "ci": "run-p build test lint",
+    "build": "run-p build:esbuild tsc",
+    "build:esbuild": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --outfile=dist/index.js",
+    "build:esbuild:release": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --minify --outfile=dist/index.js",
+    "tsc": "tsc"
   },
+  "types": "./types/src/index.d.ts",
+  "files": [
+    "/dist",
+    "/types"
+  ],
   "author": "yumetodo",
   "license": "BSL-1.0",
   "devDependencies": {
@@ -21,6 +28,7 @@
     "esbuild": "^0.14.25",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2"
