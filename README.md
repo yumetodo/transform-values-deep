@@ -1,5 +1,7 @@
 # transform-values-deep
 
+[![build](https://github.com/yumetodo/transform-values-deep/actions/workflows/build.yml/badge.svg)](https://github.com/yumetodo/transform-values-deep/actions/workflows/build.yml)
+
 Deeply convert object values using specified predicate.
 
 ```typescript
