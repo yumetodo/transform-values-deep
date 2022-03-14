@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "description": "Deeply convert object values",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yumetodo/transform-values-deep.git"
+  },
   "scripts": {
     "test": "ava --verbose test/",
     "lint": "eslint --ext .ts . --cache",
