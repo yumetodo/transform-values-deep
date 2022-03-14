@@ -44,6 +44,6 @@ export function transformAnyValuesDeep<T>(
  * @param pred applied to the object value which type is not object, array, null, function
  * @returns converted new object
  */
-export function transformValuesDeep(o: Record<string, unknown>, pred: (o: TransformTargetType) => unknown) {
+export function transformValuesDeep(o: Record<string, unknown> | Array<unknown>, pred: (o: TransformTargetType) => unknown) {
   return transformAnyValuesDeep(o, pred, defaultTransformTargetType);
 }
