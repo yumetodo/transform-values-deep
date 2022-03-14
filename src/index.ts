@@ -10,6 +10,14 @@ function isRecord(v: unknown): v is Record<any, unknown> {
   }
   return v !== null;
 }
+
+/**
+ * Deeply convert object values using specified predicate
+ * @param o input object
+ * @param pred applied to the object value which type is not object, array or null and not rejected by `isTransformTargetType`
+ * @param isTransformTargetType decide weather it should be converted or not
+ * @returns converted new object
+ */
 export function transformAnyValuesDeep<T>(
   o: Record<string, unknown> | Array<unknown>,
   pred: (o: T) => unknown,
@@ -30,6 +38,12 @@ export function transformAnyValuesDeep<T>(
   }
   return re;
 }
+/**
+ * Deeply convert object values using specified predicate
+ * @param o input object
+ * @param pred applied to the object value which type is not object, array, null, function
+ * @returns converted new object
+ */
 export function transformValuesDeep(o: Record<string, unknown>, pred: (o: TransformTargetType) => unknown) {
   return transformAnyValuesDeep(o, pred, defaultTransformTargetType);
 }
