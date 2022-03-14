@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run build:prepublish
       - name: npm publish when possible
