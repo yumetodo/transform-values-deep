@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/msys64/home/yumetodo/transform-values-deep/.github/workflows/build.yml"
+    }
+}

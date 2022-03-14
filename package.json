@@ -10,6 +10,7 @@
     "prettier": "prettier --write .",
     "ci": "run-p build test lint",
     "build": "run-p build:esbuild tsc",
+    "build:prepublish": "run-p build:esbuild:release tsc",
     "build:esbuild": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --outfile=dist/index.js",
     "build:esbuild:release": "esbuild ./src/index.ts  --bundle --platform=node --target=node14.6 --minify --outfile=dist/index.js",
     "tsc": "tsc"
