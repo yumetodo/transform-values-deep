@@ -31,3 +31,9 @@ test('no change object', t => {
     { foo: o }
   );
 });
+test('array', t => {
+  t.deepEqual(
+    transformValuesDeep([1, 2], o => o),
+    [1, 2]
+  );
+});
