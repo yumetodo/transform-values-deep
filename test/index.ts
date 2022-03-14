@@ -27,7 +27,7 @@ test('string to number', t => {
 test('no change object', t => {
   const o = {};
   t.not(
-    { foo: o },
-    transformValuesDeep({ foo: o }, v => v)
+    transformValuesDeep({ foo: o }, v => v),
+    { foo: o }
   );
 });
