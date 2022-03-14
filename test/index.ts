@@ -37,3 +37,18 @@ test('array', t => {
     [1, 2]
   );
 });
+test('array in object', t => {
+  const actual = transformAnyValuesDeep(
+    {
+      foo: [4, '3', { a: 7 }],
+      bar: '9',
+    },
+    (num: number) => num.toString(),
+    (o): o is number => typeof o === 'number'
+  );
+  const expected = {
+    foo: ['4', '3', { a: '7' }],
+    bar: '9',
+  };
+  t.deepEqual(actual, expected);
+});
